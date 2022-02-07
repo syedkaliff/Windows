@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    options {
-        ansiColor('xterm')
-    }
+   
     environment {
     
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
@@ -64,7 +62,9 @@ pipeline {
 
         stage('Ansible') {
             steps {
-                ansiblePlaybook(credentialsId: 'aws-ubuntu', inventory: 'aws_hosts', playbook: 'playbooks/windows.yml')
+                ansiColor('xterm') {
+                ansiblePlaybook(credentialsId: 'aws-ubuntu', inventory: 'aws_hosts', playbook: 'playbooks/windows.yml', colorized: true )
+            }
             }
         }
         
