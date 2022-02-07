@@ -74,14 +74,14 @@ EOF
     EOT
          
   } 
-  */
+ 
 
    provisioner "local-exec" {
     command = "printf '%s\n' 2a '${self.public_ip} ansible_user=administrator' . x | ex aws_hosts"
      #"printf '\n${self.public_ip}' >> aws_hosts"
      
   }
-  
+   */
   provisioner "local-exec" {
     when    = destroy
     command = "sed -i '/^[0-9]/d' aws_hosts"
