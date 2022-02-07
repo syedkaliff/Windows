@@ -38,11 +38,7 @@ pipeline {
         
         stage('Inventory') {
           steps {
-                sh '''printf \\
-                \'%s\\n\' 1a "$(terraform output -json instance_ips | jq -r \'.[]\')" \\
-                ansible_user=administrator .x | ex aws_hosts
-
-                '''
+                sh 'printf \'%s\\n\' 2a "$(terraform output -json instance_ips | jq -r \'.[]\')" ansible_user=administrator . x | ex aws_hosts'
             }
         }
         stage('EC2 Wait') {
