@@ -77,7 +77,8 @@ EOF
   */
 
    provisioner "local-exec" {
-    command = "printf '\n${self.public_ip}' >> aws_hosts"
+    command = printf '%s\n' 2a '${self.public_ip} ansible_user=administrator' . x | ex aws_hosts 
+     #"printf '\n${self.public_ip}' >> aws_hosts"
   }
   
   provisioner "local-exec" {
