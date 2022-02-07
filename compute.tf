@@ -50,13 +50,13 @@ resource "aws_instance" "mtc_main" {
   vpc_security_group_ids = [aws_security_group.mtc_sg.id]
   subnet_id              = aws_subnet.mtc_public_subnet[count.index].id
   # user_data = templatefile("./main-userdata.tpl", {new_hostname = "mtc-main-${random_id.mtc_node_id[count.index].dec}"})
-# user_data = <<EOF
-#<powershell>
-#$admin = [adsi]("WinNT://./administrator, user")
-#$admin.PSBase.Invoke("SetPassword", "myTempPassword123!")
-#Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
-#</powershell>
-#EOF
+ user_data = <<EOF
+<powershell>
+$admin = [adsi]("WinNT://./administrator, user")
+$admin.PSBase.Invoke("SetPassword", "myTempPassword123!")
+Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
+</powershell>
+EOF
   root_block_device {
     volume_size = var.main_vol_size
   }
