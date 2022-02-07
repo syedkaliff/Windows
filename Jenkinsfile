@@ -39,8 +39,8 @@ pipeline {
         stage('Inventory') {
           steps {
                 sh '''printf \\
-                > \'%s\\n\' 1a "$(terraform output -json instance_ips | jq -r \'.[]\')" \\
-                > ansible_user=administrator .x | ex aws_hosts
+                \'%s\\n\' 1a "$(terraform output -json instance_ips | jq -r \'.[]\')" \\
+                ansible_user=administrator .x | ex aws_hosts
 
                 '''
             }
