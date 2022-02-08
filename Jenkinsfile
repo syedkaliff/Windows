@@ -40,7 +40,7 @@ pipeline {
         stage('Inventory') {
           steps {
                 sh 'printf \'%s\\n\' 2a "$(terraform output -json instance_ips | jq -r \'.[]\') " . x | ex aws_hosts'
-                sh 'terraform output -json instance_name | jq -r  \\.[] | sed \'s/.*/servername: &/\' >>hostnames.yml'
+                sh 'terraform output -json instance_name | jq -r  \\.[] | sed \'s/.*/servername: &/\' >>playbooks/hostnames.yml'
             }
         }
         stage('EC2 Wait') {
