@@ -120,3 +120,9 @@ output "instance_ips" {
 output "instance_ids" {
   value = [for i in aws_instance.mtc_main[*]: i.id]
 }
+
+  
+
+output "instance_name" {
+value = [ for i in aws_instance.mtc_main[*] : i.tags.name]
+}
