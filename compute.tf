@@ -84,7 +84,10 @@ EOF
    */
   provisioner "local-exec" {
     when    = destroy
-    command = "sed -i '/^[0-9]/d' aws_hosts"
+    command = = <<-EOT
+    sed -i '/^[0-9]/d' aws_hosts
+    sed -ni '' hostnames.yml
+    EOT
   } 
 }
 
