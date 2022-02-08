@@ -1,6 +1,8 @@
 ---
 
 - hosts: main 
+  vars_files:
+    - hostnames.yml
 
   tasks:
    - name: Uninstall 7-Zip from the exe
