@@ -124,5 +124,6 @@ output "instance_ids" {
   
 
 output "instance_name" {
-value = [ for i in aws_instance.mtc_main[*] : i.tags.name]
+value = [ for i in aws_instance.mtc_main[*] : i.tags_all.Name]
+
 }
