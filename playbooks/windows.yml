@@ -15,3 +15,11 @@
        name: web-server
        state: present
         
+   - name: Configure hostname
+     win_hostname:
+       name: "{{ servername }}"
+     register: result
+     
+   - name: Reboot machine post changing hostname
+     win_reboot:
+     when: result.reboot_required
