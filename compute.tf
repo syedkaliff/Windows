@@ -124,9 +124,11 @@ output "instance_ids" {
   value = [for i in aws_instance.mtc_main[*]: i.id]
 }
 
-  
-
 output "instance_name" {
 value = [ for i in aws_instance.mtc_main[*] : i.tags_all.Name]
-
 }
+  
+output "hostnames" {
+value = { for i in aws_instance.mtc_main[*]: i.public_ip => i.tags.Name }
+}
+
