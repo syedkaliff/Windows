@@ -1,8 +1,8 @@
 ---
 
 - hosts: main 
-  vars_files:
-    - hostnames.yml
+  #vars_files:
+  # - hostnames.yml
 
   tasks:
    - name: Uninstall 7-Zip from the exe
@@ -19,7 +19,7 @@
         
    - name: Configure hostname
      win_hostname:
-       name: "{{ servername }}"
+       name: "{{ hostname }}"
      register: result
      
    - name: Reboot machine post changing hostname
