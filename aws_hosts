@@ -1,11 +1,9 @@
-[main]
-
-
-
-
 [main:vars]
 ansible_connection=winrm
 ansible_user=Administrator
 ansible_password=myTempPassword123!
 ansible_winrm_server_cert_validation=ignore
+
+
+[main]
 
