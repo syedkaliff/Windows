@@ -129,6 +129,6 @@ value = [ for i in aws_instance.mtc_main[*] : i.tags_all.Name]
 }
   
 output "hostnames" {
-value = { for i in aws_instance.mtc_main[*]: i.public_ip =>  "               hostname=${ i.tags.Name}          ansible_user=admininstrator"  }
+value = { for i in aws_instance.mtc_main[*]: i.public_ip =>  "               hostname=${ i.tags.Name} "  }
 }
 
