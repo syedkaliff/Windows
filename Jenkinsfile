@@ -60,7 +60,7 @@ pipeline {
             steps {
                 echo 'Ansible Approved'
             }
-        }
+        } 
 
         stage('Ansible') {
             steps {
