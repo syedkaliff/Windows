@@ -1,0 +1,27 @@
+---
+
+- hosts: main 
+  #vars_files:
+  # - hostnames.yml
+
+  tasks:
+   - name: Uninstall 7-Zip from the exe
+     win_package:
+       path: C:\Program Files\7-Zip\Uninstall.exe
+       product_id: 7-Zip
+       arguments: /S
+       state: absent
+   
+   - name: "Install IIS"
+     win_feature:
+       name: web-server
+       state: present
+        
+   - name: Configure hostname
+     win_hostname:
+       name: "{{ hostname }}"
+     register: result
+     
+   - name: Reboot machine post changing hostname
+     win_reboot:
+     when: result.reboot_required
