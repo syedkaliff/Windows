@@ -3,7 +3,11 @@ terraform {
     aws = {
       source = "hashicorp/aws"
       version = "4.8.0"
-      
+        }
+}
+
+  
+  
     
   backend "s3" {
     bucket = "tfs3"
@@ -14,8 +18,6 @@ terraform {
       
       
     }
-  }
-}
 
 provider "aws" {
   region = "us-west-1"
