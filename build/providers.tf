@@ -11,7 +11,7 @@ terraform {
     
   backend "s3" {
     bucket = "tfs3-syed"
-    key    = "states/windows.tfstate"
+    key    = "states/windows1.tfstate"
     region = "us-west-1"
     dynamodb_table = "tfs3-syed"
   }
