@@ -13,6 +13,7 @@ terraform {
     bucket = "tfs3-syed"
     key    = "states/windows.tf"
     region = "us-west-1"
+    dynamodb_table = "tfs3-syed"
   }
 
       
