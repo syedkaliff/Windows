@@ -35,7 +35,7 @@ variable "main_vol_size" {
 
 variable "main_instance_count" {
   type    = number
-  default = 2
+  default = 1
 }
 
 variable "key_name" {
