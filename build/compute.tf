@@ -86,7 +86,7 @@ EOF
     when    = destroy
     command = <<-EOT
     sed -i '/^[0-9]/d' aws_hosts
-    sed -ni '' hostnames.yml
+ #   sed -ni '' hostnames.yml
     EOT
   } 
 }
