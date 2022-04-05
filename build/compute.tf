@@ -82,13 +82,7 @@ EOF
      
   }
    
-  provisioner "local-exec" {
-    when    = destroy
-    command = <<-EOT
-    sed -i '/^[0-9]/d' aws_hosts
- #   sed -ni '' hostnames.yml
-    EOT
-  } 
+ 
 }
 */
 # resource "null_resource" "grafana_update" {
