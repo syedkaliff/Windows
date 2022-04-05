@@ -81,7 +81,7 @@ EOF
      #"printf '\n${self.public_ip}' >> aws_hosts"
      
   }
-   */
+   
   provisioner "local-exec" {
     when    = destroy
     command = <<-EOT
@@ -90,7 +90,7 @@ EOF
     EOT
   } 
 }
-
+*/
 # resource "null_resource" "grafana_update" {
 #   count = var.main_instance_count
 #   provisioner "remote-exec" {
