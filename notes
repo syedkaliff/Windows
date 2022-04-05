@@ -1,0 +1,2 @@
+#to send TF output to >>aws_hosts
+terraform output -json hostnames | jq -r . | tr -d \"{}:\', | sed 's/^[[:space:]]*/ /g' >>aws_hosts
