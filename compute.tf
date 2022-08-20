@@ -89,7 +89,7 @@ EOF
     when    = destroy
     command = <<-EOT
     sed -i '/^[0-9]/d' /tmp/ansibleroles/hostfile
-    sed -ni '' hostnames.yml
+  #  sed -ni '' hostnames.yml
     EOT
   } 
 }
