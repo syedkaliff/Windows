@@ -83,14 +83,14 @@ EOF
     
    provisioner "local-exec" {
     #command = "printf '%s\n' 2a '${self.public_ip} ansible_user=administrator' . x | ex /tmp/ansibleroles/hostfile"
-    command = "printf '\n${self.public_ip}      ansible_user=mylocaladmin' >> /tmp/ansibleroles/hostfile"
+    command = "printf '\n${self.public_ip}      ansible_user=ubuntu' >> /tmp/ansibleroleslinux/hostfile"
      
   }
    
   provisioner "local-exec" {
     when    = destroy
     command = <<-EOT
-    sed -i '/^[0-9]/d' /tmp/ansibleroles/hostfile
+    sed -i '/^[0-9]/d' /tmp/ansibleroleslinux/hostfile
   #  sed -ni '' hostnames.yml
     EOT
   } 
