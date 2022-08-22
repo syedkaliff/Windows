@@ -1,0 +1,15 @@
+
+
+
+[main:vars]
+ansible_connection=winrm
+ansible_user=mylocaladmin
+ansible_password=p@ssw0rd!
+ansible_winrm_server_cert_validation=ignore
+
+
+[main]
+
+
+
+
