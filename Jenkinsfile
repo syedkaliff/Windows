@@ -66,7 +66,7 @@ pipeline {
         stage('Ansible') {
             steps {
                 ansiColor('xterm') {
-                ansiblePlaybook(credentialsId: 'aws-ubuntu', inventory: '/tmp/ansibleroles/hostfile', playbook: '/tmp/ansibleroles/master.yml', colorized: true )
+                ansiblePlaybook(credentialsId: 'aws-ubuntu', inventory: '/tmp/ansibleroleslinux/hostfile', playbook: '/tmp/ansibleroleslinux/master.yml', colorized: true )
             }
             }
         }
